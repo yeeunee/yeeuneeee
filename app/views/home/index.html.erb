@@ -1,0 +1,8 @@
+<% if user_signed_in? %>
+<%= link_to '로그아웃', '/users/sign_out', method: :delete %>
+<% else %>
+    <a href="/users/sign_in">로그인</a>
+    <a href="/users/sign_up">회원가입</a>
+<% end %>
+<br><br>
+<a href="/post/index">게시글 보러가기</a>

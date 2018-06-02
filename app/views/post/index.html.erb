@@ -12,9 +12,12 @@
 <% @posts.each do |p| %>
   <div>
     <h3><%=p.title%></h3>
+    <p><%=p.user.email%></p>
     <a data-method="get" href="/post/<%=p.id%>">읽기</a>
-    <a href="/edit/<%=p.id%>">수정</a>
-    <a data-method="delete" href="/post/<%=p.id%>">삭제</a>
+      <% if current_user.id == p.user_id %>
+        <a href="/edit/<%=p.id%>">수정</a>
+        <a data-method="delete" href="/post/<%=p.id%>">삭제</a>
+        <% end %>
   </div>
   <p>—————————————————————————</p>
   <br>
